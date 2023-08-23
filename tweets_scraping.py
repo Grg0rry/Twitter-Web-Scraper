@@ -116,22 +116,27 @@ def twitter_search(driver, search_link, num_of_tweets):
             
     return tweets_data
 
-# initialize driver
-driver = webdriver.Chrome(ChromeDriverManager().install())
-driver.wait = WebDriverWait(driver, 5)
+if __name__ == '__main__':
+    # initialize driver
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.wait = WebDriverWait(driver, 5)
 
-start_time = datetime.datetime.now()
-driver.get("https://twitter.com/login")
-twitter_login(driver, 'replace with email address','replace with username','replace with password')
+    email = input('twitter email address -> ')
+    username = input('twitter username -> ')
+    password = input('twitter password -> ')
 
-tweets = twitter_search(driver, 'https://twitter.com/search?q=tesla%20-nikola%20lang%3Aen&src=typed_query&f=live', 200)
-tweets.to_csv('C:/Users/user/desktop/tweets.csv')
+    start_time = datetime.datetime.now()
+    driver.get("https://twitter.com/login")
+    twitter_login(driver, email, username, password)
 
-end_time = datetime.datetime.now()
-print('elapsed time: ', end_time-start_time)
+    tweets = twitter_search(driver, 'https://twitter.com/search?q=tesla%20-nikola%20lang%3Aen&src=typed_query&f=live', 200)
+    tweets.to_csv('tweets.csv')
 
-print('', psutil.cpu_percent())
-print(psutil.virtual_memory())
-print('memory % used:', psutil.virtual_memory()[2])
+    end_time = datetime.datetime.now()
+    print('elapsed time: ', end_time-start_time)
 
-driver.quit()
+    print('', psutil.cpu_percent())
+    print(psutil.virtual_memory())
+    print('memory % used:', psutil.virtual_memory()[2])
+
+    driver.quit()

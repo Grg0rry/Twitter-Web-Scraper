@@ -1,0 +1,7 @@
+selenium
+webdriver-manager
+pandas
+time
+tdsm
+datetime
+psutil

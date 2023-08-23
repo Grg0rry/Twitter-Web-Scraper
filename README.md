@@ -1,6 +1,7 @@
 # Twitter Web Scraper using Selenium
 
-This scraper is coded using python to scrape through 200 recent tweets regarding the brand Tesla. It uses the library Selenium to mannually go through each tweet post and extract the necessary details and then stores these information into a CSV file.
+## Background
+This project is done for Social Media Analytics (IST2134) assignment. Scraper coded using python to scrape through 200 recent tweets regarding the brand Tesla. It uses the library Selenium to mannually go through each tweet post and extract the necessary details and then stores these information into a CSV file.
 
 ## Instructions
 1. Before running the codes, please ensure that you have the required packages installed. 
